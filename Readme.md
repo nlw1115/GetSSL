@@ -1,5 +1,20 @@
 # GetSSL Script
 
+## 使用方法
+
+### 前提条件
+1. 确保你的服务器支持 `bash` 和基本的网络访问。
+2. 提供一个域名（如 `example.com`）供脚本使用。
+
+### 下载和运行
+
+1. 通过 `curl` 直接下载并执行脚本：
+   ```bash
+   curl -sSL https://raw.githubusercontent.com/your_username/acme-setup-script/main/GetSSL.sh | bash -s yourdomain.com
+   ```
+
+---
+
 ## 简介
 
 `GetSSL.sh` 是一个用于自动化处理 SSL/TLS 证书注册、签发和安装的脚本，基于 `acme.sh` 工具构建。脚本支持自动生成随机邮箱地址，用户只需提供域名参数即可完成从依赖安装到证书生成和安装的整个流程。
@@ -28,18 +43,4 @@
 6. **输出信息**：
    - 成功执行后，脚本会输出：
      - 随机生成的邮箱地址。
-     - 证书文件和私钥文件的保存路径。
-
----
-
-## 使用方法
-
-### 前提条件
-1. 确保你的服务器支持 `bash` 和基本的网络访问。
-2. 提供一个域名（如 `example.com`）供脚本使用。
-
-### 下载和运行
-
-1. 通过 `curl` 直接下载并执行脚本：
-   ```bash
-   curl -sSL https://raw.githubusercontent.com/your_username/acme-setup-script/main/GetSSL.sh | bash -s yourdomain.com
+     - 证书文件和私钥文件的保存路径。 
