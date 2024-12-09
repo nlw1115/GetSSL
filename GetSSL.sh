@@ -1,5 +1,50 @@
 #!/bin/bash
 
+# 检测并安装必要工具
+install_tools() {
+    # 检测当前操作系统
+    if [[ -f /etc/os-release ]]; then
+        . /etc/os-release
+        OS=$ID
+    else
+        echo "无法检测操作系统，脚本终止。"
+        exit 1
+    fi
+
+    # 定义安装命令
+    case "$OS" in
+        ubuntu|debian)
+            INSTALL_CMD="apt-get update && apt-get install -y"
+            ;;
+        centos|rhel|almalinux|rocky)
+            INSTALL_CMD="yum install -y"
+            ;;
+        fedora)
+            INSTALL_CMD="dnf install -y"
+            ;;
+        arch)
+            INSTALL_CMD="pacman -Syu --noconfirm"
+            ;;
+        *)
+            echo "不支持的操作系统：$OS，请手动安装 curl 和 socat。"
+            exit 1
+            ;;
+    esac
+
+    # 安装 curl 和 socat
+    for TOOL in curl socat; do
+        if ! command -v $TOOL &> /dev/null; then
+            echo "$TOOL 未安装，开始安装..."
+            eval "$INSTALL_CMD $TOOL"
+        else
+            echo "$TOOL 已安装，跳过。"
+        fi
+    done
+}
+
+# 调用安装函数
+install_tools
+
 # 生成随机邮箱（8位随机字符 + @gmail.com）
 EMAIL=$(cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 8 | head -n 1)@gmail.com
 
