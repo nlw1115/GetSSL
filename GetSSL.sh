@@ -69,7 +69,7 @@ fi
 
 # 注册账号、签发证书并安装
 if ~/.acme.sh/acme.sh --register-account -m "$EMAIL" &&
-   ~/.acme.sh/acme.sh --issue -d "$DOMAIN" --standalone &&
+   ~/.acme.sh/acme.sh --issue -d "$DOMAIN" --standalone --force &&
    ~/.acme.sh/acme.sh --installcert -d "$DOMAIN" --key-file "$KEY_FILE" --fullchain-file "$FULLCHAIN_FILE"; then
     # 输出成功信息
     echo "证书安装完成！"
