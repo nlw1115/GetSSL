@@ -8,11 +8,10 @@
 
 ### 下载和运行
 
-1. 通过 `curl` 直接下载并执行脚本：
+1. 通过 `curl` 直接下载并执行脚本：**（⚠️ 请将 `example.com` 替换为您自己的域名！）**
    ```bash
-   curl -sSL https://raw.githubusercontent.com/nlw1115/GetSSL/refs/heads/main/GetSSL.sh | bash -s yourdomain.com
+   curl -sSL https://raw.githubusercontent.com/nlw1115/GetSSL/refs/heads/main/GetSSL.sh | bash -s example.com
    ```
-
 ---
 
 ## 简介
