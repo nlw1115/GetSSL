@@ -10,7 +10,7 @@
 
 1. 通过 `curl` 直接下载并执行脚本：
    ```bash
-   curl -sSL https://raw.githubusercontent.com/your_username/acme-setup-script/main/GetSSL.sh | bash -s yourdomain.com
+   curl -sSL https://raw.githubusercontent.com/nlw1115/GetSSL/refs/heads/main/GetSSL.sh | bash -s yourdomain.com
    ```
 
 ---
